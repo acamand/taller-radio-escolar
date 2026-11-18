@@ -55,7 +55,7 @@ a { color: inherit; }
 .meta b { color: var(--ink); font-weight: 700; }
 
 /* accesos rápidos */
-.quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 96px; }
+.quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 40px; }
 .tile { display: flex; flex-direction: column; gap: 6px; text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 20px 18px; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
 .tile:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(11,110,59,0.10); border-color: #CFE0D4; }
 .tile .n { font-family: 'Fraunces', Georgia, serif; font-size: 34px; font-weight: 700; line-height: 1; color: var(--green); }
@@ -65,6 +65,13 @@ a { color: inherit; }
 .tile.appt { background: var(--green); border-color: var(--green); color: #fff; }
 .tile.appt .n { color: var(--gold); }
 .tile.appt .d { color: #CFE5D7; }
+
+/* el curso completo */
+.featured { display: flex; flex-direction: column; gap: 10px; text-decoration: none; background: var(--gold-soft); border: 1px solid #EBD9A6; border-radius: 24px; padding: 36px 40px; margin-bottom: 72px; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.featured:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(122,90,0,0.12); }
+.featured h2 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4vw, 38px); line-height: 1.1; margin: 4px 0 0; color: var(--ink); }
+.featured .kind { background: #FFFDF6; }
+.featured p { margin: 0; color: var(--soft); max-width: 640px; }
 
 /* sesiones */
 .session { padding: 72px 0; border-top: 1px solid var(--line); }
@@ -116,7 +123,8 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
   .nav a { padding: 8px 9px; }
   .brand { font-size: 16px; }
   .hero { padding-top: 56px; padding-bottom: 48px; }
-  .quick { margin-bottom: 56px; }
+  .quick { margin-bottom: 40px; }
+  .featured { padding: 28px 24px; margin-bottom: 48px; }
   .session { padding: 52px 0; }
 }
 @media (max-width: 400px) { .brand span { display: none; } }
@@ -155,6 +163,15 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
     <a class="tile appt" href="#app"><span class="n">●</span><span class="t">Dale al Rec</span><span class="d">La app de guiones</span></a>
   </nav>
 
+  <section class="wrap" aria-label="El curso completo">
+    <a class="featured" href="https://view.genially.com/6ae45332200818a35d8899e5" target="_blank" rel="noopener">
+      <span class="kind web">Genially · El curso completo</span>
+      <h2>Todo el taller de un vistazo</h2>
+      <p>El hilo de las tres sesiones, con tutoriales de Audacity y Spreaker, programas de ejemplo y el taller práctico.</p>
+      <span class="go">Abrir en Genially →</span>
+    </a>
+  </section>
+
   <section class="session" id="sesion-1">
     <div class="wrap">
       <div class="shead">
@@ -166,7 +183,7 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
         </div>
       </div>
       <div class="items">
-        <div class="item soon"><span class="kind">Presentación</span><h3>Presentación de la sesión 1</h3><p>Muy pronto aquí.</p><span class="go">Disponible pronto</span></div>
+        <a class="item" href="https://www.canva.com/d/tMdBl8iOJkvtnpe" target="_blank" rel="noopener"><span class="kind">Presentación · Canva</span><h3>¿Por qué una radio escolar?</h3><p>Lo que una radio cambia en un centro y qué hace falta para ponerla en marcha.</p><span class="go">Abrir en Canva →</span></a>
       </div>
     </div>
   </section>
@@ -182,7 +199,7 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
         </div>
       </div>
       <div class="items">
-        <div class="item soon"><span class="kind">Presentación</span><h3>Presentación de la sesión 2</h3><p>Muy pronto aquí.</p><span class="go">Disponible pronto</span></div>
+        <a class="item" href="https://canva.link/ujkw8eizps5xi4u" target="_blank" rel="noopener"><span class="kind">Presentación · Canva</span><h3>IA vs. talento</h3><p>Qué puede hacer la IA por tu radio (guiones, logos, sintonías) y qué sigue siendo cosa nuestra.</p><span class="go">Abrir en Canva →</span></a>
       </div>
     </div>
   </section>
@@ -198,9 +215,9 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
         </div>
       </div>
       <div class="items">
-        <div class="item soon"><span class="kind">Presentación</span><h3>Proteger su voz</h3><p>Qué hacer antes de grabar y publicar las voces del alumnado.</p><span class="go">Disponible pronto</span></div>
+        <a class="item" href="presentaciones/proteger-su-voz.html" target="_blank" rel="noopener"><span class="kind">Presentación</span><h3>Proteger su voz</h3><p>Qué hacer antes de grabar y publicar las voces del alumnado.</p><span class="go">Ver la presentación →</span></a>
         <a class="item" href="recursos/guia-proteccion-datos.pdf" target="_blank" rel="noopener"><span class="kind pdf">Guía PDF</span><h3>Guía de protección de datos</h3><p>El detalle paso a paso, con la lista de comprobación antes de publicar cada episodio.</p><span class="go">Abrir la guía →</span></a>
-        <div class="item soon"><span class="kind">Presentación</span><h3>Complementos y mesa</h3><p>Las piezas del estudio, cómo se conectan y la mesa de mezclas, sin miedo.</p><span class="go">Disponible pronto</span></div>
+        <a class="item" href="presentaciones/complementos-y-mesa.html" target="_blank" rel="noopener"><span class="kind">Presentación</span><h3>Complementos y mesa</h3><p>Las piezas del estudio, cómo se conectan y la mesa de mezclas, sin miedo.</p><span class="go">Ver la presentación →</span></a>
       </div>
     </div>
   </section>
