@@ -7,230 +7,227 @@
 <meta name="description" content="Material del Taller de Radio Escolar del CEP de Lora del Río: presentaciones, guías y la app Dale al Rec, sesión a sesión.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
 <style>
 :root {
-  --green: #0B6E3B;
-  --green-deep: #08502B;
-  --green-soft: #E7F1EA;
-  --paper: #FAF8F3;
-  --card: #FFFFFF;
-  --ink: #1B2420;
-  --soft: #56615B;
-  --line: #E4DFD3;
-  --gold: #D8A31A;
-  --gold-soft: #FBF1D6;
-  --coral: #E4664A;
-  --radius: 18px;
+  --ink: #141414;
+  --paper: #F3F3F1;
+  --white: #FBFBFA;
+  --grey: #5F5F5F;
+  --grey-2: #8A8A87;
+  --line: #D9D9D5;
+  --line-dark: #333331;
+  --red: #E1352C;
+  --red-dark: #C42A22;
   color-scheme: light;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 'DM Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-a { color: inherit; }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 'Montserrat', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey); }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--red); flex: none; }
 
 /* barra superior */
-.top { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
-.brand { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 19px; text-decoration: none; color: var(--green-deep); white-space: nowrap; }
-.nav { display: flex; align-items: center; gap: 4px; }
-.nav a { text-decoration: none; font-weight: 500; font-size: 15px; padding: 8px 12px; border-radius: 10px; color: var(--soft); }
-.nav a:hover { background: var(--green-soft); color: var(--green-deep); }
-.nav a.app { background: var(--green); color: #fff; margin-left: 6px; }
-.nav a.app:hover { background: var(--green-deep); color: #fff; }
-.nav .long { display: inline; }
-
-/* sello REC */
-.rec { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-size: 13px; color: var(--green-deep); border: 2px solid var(--green-deep); border-radius: 999px; padding: 6px 14px 6px 10px; }
-.rec i { width: 12px; height: 12px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 4px rgba(228,102,74,0.18); animation: blink 2.4s ease-in-out infinite; }
-@keyframes blink { 50% { opacity: 0.35; } }
-@media (prefers-reduced-motion: reduce) { .rec i { animation: none; } html { scroll-behavior: auto; } }
+.top { position: fixed; inset: 0 0 auto 0; z-index: 20; transition: background 0.25s ease, border-color 0.25s ease; border-bottom: 1px solid transparent; }
+.top.solid { background: rgba(20,20,20,0.94); backdrop-filter: blur(10px); border-bottom-color: var(--line-dark); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--white); font-weight: 800; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; }
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a { color: #CFCFCB; font-size: 14px; font-weight: 600; transition: color 0.15s ease; }
+.nav a:hover { color: var(--white); }
+.nav a.cta { color: var(--white); border: 1px solid rgba(251,251,250,0.45); padding: 9px 16px; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; }
+.nav a.cta:hover { border-color: var(--red); background: var(--red); }
 
 /* portada */
-.hero { padding-top: 96px; padding-bottom: 72px; }
-.hero h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: clamp(44px, 8vw, 84px); line-height: 1.02; letter-spacing: -0.02em; margin: 28px 0 20px; color: var(--green-deep); }
-.hero p.lead { font-size: clamp(19px, 2.4vw, 23px); color: var(--soft); max-width: 620px; margin: 0 0 28px; }
-.meta { display: flex; flex-wrap: wrap; gap: 8px 24px; color: var(--soft); font-size: 15px; }
-.meta b { color: var(--ink); font-weight: 700; }
+.hero { position: relative; min-height: 88vh; display: flex; align-items: flex-end; background: var(--ink); color: var(--white); overflow: hidden; }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,20,20,0.92) 0%, rgba(20,20,20,0.6) 45%, rgba(20,20,20,0.1) 80%), linear-gradient(0deg, rgba(20,20,20,0.85) 0%, rgba(20,20,20,0) 40%); }
+.hero .wrap { position: relative; z-index: 1; width: 100%; padding-bottom: 88px; padding-top: 140px; }
+.hero .eyebrow { color: #BDBDBD; display: flex; align-items: center; gap: 12px; }
+.hero h1 { font-size: clamp(44px, 7.4vw, 96px); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin: 22px 0 24px; max-width: 900px; }
+.hero p { font-size: clamp(18px, 2vw, 21px); color: #CFCFCB; max-width: 560px; margin: 0 0 40px; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; padding: 16px 24px; border-radius: 6px; transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
+.btn.light { background: var(--white); color: var(--ink); }
+.btn.light:hover { background: #E6E6E2; }
+.btn.red { background: var(--red); color: var(--white); }
+.btn.red:hover { background: var(--red-dark); }
+.btn.ghost { border: 1px solid rgba(251,251,250,0.45); color: var(--white); }
+.btn.ghost:hover { border-color: var(--white); }
 
-/* accesos rápidos */
-.quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 40px; }
-.tile { display: flex; flex-direction: column; gap: 6px; text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 20px 18px; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
-.tile:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(11,110,59,0.10); border-color: #CFE0D4; }
-.tile .n { font-family: 'Fraunces', Georgia, serif; font-size: 34px; font-weight: 700; line-height: 1; color: var(--green); }
-.tile .t { font-weight: 700; font-size: 16px; line-height: 1.3; }
-.tile .d { font-size: 14px; color: var(--soft); }
-.tile.next { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
-.tile.appt { background: var(--green); border-color: var(--green); color: #fff; }
-.tile.appt .n { color: var(--gold); }
-.tile.appt .d { color: #CFE5D7; }
+.facts { border-bottom: 1px solid var(--line); background: var(--white); }
+.facts .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.fact { padding: 26px 0; }
+.fact + .fact { padding-left: 28px; border-left: 1px solid var(--line); }
+.fact b { display: block; font-size: 15px; font-weight: 700; }
+.fact span { font-size: 14px; color: var(--grey); }
 
-/* el curso completo */
-.featured { display: flex; flex-direction: column; gap: 10px; text-decoration: none; background: var(--gold-soft); border: 1px solid #EBD9A6; border-radius: 24px; padding: 36px 40px; margin-bottom: 72px; transition: transform 0.15s ease, box-shadow 0.15s ease; }
-.featured:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(122,90,0,0.12); }
-.featured h2 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4vw, 38px); line-height: 1.1; margin: 4px 0 0; color: var(--ink); }
-.featured .kind { background: #FFFDF6; }
-.featured p { margin: 0; color: var(--soft); max-width: 640px; }
+/* índice de sesiones */
+.index { padding-top: 112px; padding-bottom: 40px; }
+.section-head { margin-bottom: 40px; }
+.section-head h2 { font-size: clamp(32px, 4.4vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin: 12px 0 0; }
 
-/* sesiones */
-.session { padding: 72px 0; border-top: 1px solid var(--line); }
-.shead { display: grid; grid-template-columns: 120px 1fr; gap: 8px 32px; margin-bottom: 36px; }
-.snum { font-family: 'Fraunces', Georgia, serif; font-size: 96px; line-height: 0.85; font-weight: 700; color: var(--green); }
-.sdate { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 15px; color: var(--soft); font-weight: 500; margin-bottom: 6px; }
-.badge { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--gold-soft); color: #7A5A00; padding: 3px 10px; border-radius: 999px; }
-.shead h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: clamp(30px, 4.4vw, 44px); line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.01em; }
-.shead p { margin: 0; color: var(--soft); max-width: 600px; }
+.row { display: grid; grid-template-columns: 140px 1fr 1.15fr; gap: 40px; padding: 48px 0; border-top: 1px solid var(--ink); }
+.row:last-child { border-bottom: 1px solid var(--line); }
+.num { font-size: 88px; font-weight: 800; line-height: 0.82; letter-spacing: -0.05em; }
+.num.r { color: var(--red); }
+.when { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 13px; font-weight: 600; color: var(--grey); letter-spacing: 0.02em; }
+.badge { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--red); padding: 4px 9px; border-radius: 4px; }
+.row h3 { font-size: 28px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 10px 0 12px; }
+.row p { margin: 0; color: var(--grey); font-size: 16px; }
 
-.items { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; margin-left: 152px; }
-.item { position: relative; display: flex; flex-direction: column; gap: 8px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 22px 20px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
-a.item:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(11,110,59,0.10); border-color: #CFE0D4; }
-.kind { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; background: var(--green-soft); color: var(--green-deep); }
-.kind.pdf { background: #FCE9E4; color: #9A3A24; }
-.kind.web { background: var(--gold-soft); color: #7A5A00; }
-.item h3 { margin: 4px 0 0; font-size: 20px; line-height: 1.25; }
-.item p { margin: 0; font-size: 15px; color: var(--soft); flex: 1; }
-.go { font-weight: 700; font-size: 15px; color: var(--green); }
-.item.soon { background: transparent; border-style: dashed; }
-.item.soon h3, .item.soon .kind { opacity: 0.6; }
-.item.soon .go { color: var(--soft); font-weight: 500; }
+.list { display: flex; flex-direction: column; }
+.res { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); transition: padding 0.2s ease; }
+.res:first-child { border-top: 1px solid var(--line); }
+.res .k { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-2); margin-bottom: 4px; }
+.res .t { display: block; font-size: 18px; font-weight: 700; line-height: 1.3; transition: color 0.2s ease; }
+.res .arrow { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font-size: 17px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+.res:hover { padding-left: 8px; }
+.res:hover .arrow { background: var(--red); border-color: var(--red); color: var(--white); }
+.res:hover .t { color: var(--red-dark); }
 
 /* app */
-.app-band { background: var(--green-deep); color: #fff; border-radius: 28px; padding: 56px; margin: 24px 0 96px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; }
-.app-band .rec { color: #fff; border-color: rgba(255,255,255,0.7); }
-.app-band h2 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; margin: 20px 0 12px; }
-.app-band p { margin: 0; color: #CFE5D7; font-size: 18px; max-width: 460px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--gold); color: var(--ink); font-weight: 700; font-size: 18px; text-decoration: none; padding: 18px 28px; border-radius: 14px; transition: transform 0.15s ease, background 0.15s ease; }
-.btn:hover { transform: translateY(-2px); background: #E6B634; }
-.app-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
-.app-cta small { color: #A9CDB6; font-size: 14px; }
+.app { background: var(--ink); color: var(--white); margin-top: 112px; }
+.app .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: end; padding-top: 112px; padding-bottom: 112px; }
+.rec { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); border: 1.5px solid var(--red); padding: 8px 14px 8px 12px; border-radius: 4px; }
+.rec .dot { animation: blink 2.2s ease-in-out infinite; }
+@keyframes blink { 50% { opacity: 0.3; } }
+.app h2 { font-size: clamp(40px, 6vw, 76px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin: 28px 0 0; }
+.app p { color: #BDBDBD; font-size: 18px; margin: 0 0 32px; max-width: 420px; }
+.app small { display: block; color: var(--grey-2); font-size: 13px; margin-top: 16px; }
 
-footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--soft); font-size: 14px; }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+footer { background: var(--ink); color: var(--grey-2); border-top: 1px solid var(--line-dark); font-size: 13px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 28px; padding-bottom: 36px; }
+footer a:hover { color: var(--white); }
 
-a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .rec .dot { animation: none; } }
 
-@media (max-width: 860px) {
-  .quick { grid-template-columns: repeat(2, 1fr); }
-  .items { margin-left: 0; }
-  .shead { grid-template-columns: 1fr; }
-  .snum { font-size: 64px; }
-  .app-band { grid-template-columns: 1fr; padding: 36px 28px; }
+@media (max-width: 920px) {
+  .row { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
+  .num { font-size: 64px; }
+  .facts .wrap { grid-template-columns: 1fr 1fr; }
+  .fact:nth-child(3) { padding-left: 0; border-left: none; }
+  .fact:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .app .wrap { grid-template-columns: 1fr; align-items: start; gap: 32px; }
 }
 @media (max-width: 640px) {
-  .wrap { padding: 0 16px; }
-  .nav .long { display: none; }
-  .nav a { padding: 8px 9px; }
-  .brand { font-size: 16px; }
-  .hero { padding-top: 56px; padding-bottom: 48px; }
-  .quick { margin-bottom: 40px; }
-  .featured { padding: 28px 24px; margin-bottom: 48px; }
-  .session { padding: 52px 0; }
+  .wrap { padding: 0 20px; }
+  .nav { gap: 16px; }
+  .nav .hide-s { display: none; }
+  .hero { min-height: 82vh; }
+  .hero .wrap { padding-bottom: 56px; }
+  .hero::after { background: linear-gradient(0deg, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.7) 55%, rgba(20,20,20,0.35) 100%); }
+  .index { padding-top: 72px; }
+  .app { margin-top: 72px; }
+  .app .wrap { padding-top: 72px; padding-bottom: 72px; }
 }
-@media (max-width: 400px) { .brand span { display: none; } }
 </style>
 </head>
 <body>
 
-<header class="top">
+<header class="top" id="top">
   <div class="wrap">
-    <a class="brand" href="#inicio">Radio Escolar<span> · Taller</span></a>
+    <a class="brand" href="#inicio"><i class="dot"></i><span>Radio Escolar</span></a>
     <nav class="nav" aria-label="Secciones">
-      <a href="#sesion-1"><span class="long">Sesión </span>1</a>
-      <a href="#sesion-2"><span class="long">Sesión </span>2</a>
-      <a href="#sesion-3"><span class="long">Sesión </span>3</a>
-      <a class="app" href="#app">App</a>
+      <a class="hide-s" href="#sesiones">Sesiones</a>
+      <a class="hide-s" href="#curso">El curso</a>
+      <a class="cta" href="#app"><i class="dot"></i>Dale al Rec</a>
     </nav>
   </div>
 </header>
 
 <main id="inicio">
-  <section class="hero wrap">
-    <span class="rec"><i></i>Dale al rec</span>
-    <h1>Taller de Radio Escolar</h1>
-    <p class="lead">Todo el material del curso, sesión a sesión, para montar la radio de tu centro.</p>
-    <div class="meta">
-      <span><b>CEP de Lora del Río</b></span>
-      <span>Noviembre y diciembre de 2026</span>
-      <span>3 sesiones presenciales</span>
-    </div>
-  </section>
-
-  <nav class="wrap quick" aria-label="Acceso rápido">
-    <a class="tile" href="#sesion-1" data-date="2026-11-04"><span class="n">1</span><span class="t">Por qué una radio escolar</span><span class="d">Miércoles 4 de noviembre</span></a>
-    <a class="tile" href="#sesion-2" data-date="2026-11-16"><span class="n">2</span><span class="t">La IA y Audacity</span><span class="d">Lunes 16 de noviembre</span></a>
-    <a class="tile" href="#sesion-3" data-date="2026-12-02"><span class="n">3</span><span class="t">La mesa y el programa</span><span class="d">Miércoles 2 de diciembre</span></a>
-    <a class="tile appt" href="#app"><span class="n">●</span><span class="t">Dale al Rec</span><span class="d">La app de guiones</span></a>
-  </nav>
-
-  <section class="wrap" aria-label="El curso completo">
-    <a class="featured" href="https://view.genially.com/6ae45332200818a35d8899e5" target="_blank" rel="noopener">
-      <span class="kind web">Genially · El curso completo</span>
-      <h2>Todo el taller de un vistazo</h2>
-      <p>El hilo de las tres sesiones, con tutoriales de Audacity y Spreaker, programas de ejemplo y el taller práctico.</p>
-      <span class="go">Abrir en Genially →</span>
-    </a>
-  </section>
-
-  <section class="session" id="sesion-1">
+  <section class="hero">
+    <img src="img/estudio.jpg" alt="Estudio de radio en penumbra con un micrófono en primer plano y el piloto rojo de «en el aire» encendido al fondo">
     <div class="wrap">
-      <div class="shead">
-        <div class="snum" aria-hidden="true">1</div>
-        <div>
-          <div class="sdate" data-date="2026-11-04">Sesión 1 · Miércoles 4 de noviembre</div>
-          <h2>Por qué una radio escolar</h2>
-          <p>Para qué sirve una radio en el centro, qué necesitamos, cómo montar el estudio y cómo preparar el guion y la escaleta.</p>
-        </div>
-      </div>
-      <div class="items">
-        <a class="item" href="https://canva.link/s0hz33q68re3rqm" target="_blank" rel="noopener"><span class="kind">Presentación · Canva</span><h3>¿Por qué una radio escolar?</h3><p>Lo que una radio cambia en un centro y qué hace falta para ponerla en marcha.</p><span class="go">Abrir en Canva →</span></a>
+      <div class="eyebrow"><i class="dot"></i>CEP de Lora del Río · Formación del profesorado</div>
+      <h1>Taller de Radio Escolar</h1>
+      <p>Todo el material del curso, sesión a sesión, para poner en marcha la radio de tu centro.</p>
+      <div class="actions">
+        <a class="btn light" href="#sesiones">Ver las sesiones ↓</a>
+        <a class="btn ghost" href="#app">Abrir la app</a>
       </div>
     </div>
   </section>
 
-  <section class="session" id="sesion-2">
+  <section class="facts" aria-label="Datos del curso">
     <div class="wrap">
-      <div class="shead">
-        <div class="snum" aria-hidden="true">2</div>
-        <div>
-          <div class="sdate" data-date="2026-11-16">Sesión 2 · Lunes 16 de noviembre</div>
-          <h2>La IA y Audacity</h2>
-          <p>Herramientas de inteligencia artificial para guiones, logos y sintonías, y primeros pasos para grabar y editar con Audacity.</p>
-        </div>
-      </div>
-      <div class="items">
-        <a class="item" href="https://canva.link/ujkw8eizps5xi4u" target="_blank" rel="noopener"><span class="kind">Presentación · Canva</span><h3>IA vs. talento</h3><p>Qué puede hacer la IA por tu radio (guiones, logos, sintonías) y qué sigue siendo cosa nuestra.</p><span class="go">Abrir en Canva →</span></a>
-      </div>
+      <div class="fact"><b>3 sesiones</b><span>Presenciales, de 3 horas</span></div>
+      <div class="fact"><b>Nov. – dic. 2026</b><span>De 16:30 a 19:30 h</span></div>
+      <div class="fact"><b>CEP de Lora del Río</b><span>Aula de Formación</span></div>
+      <div class="fact"><b>274132GE009</b><span>Código de la actividad</span></div>
     </div>
   </section>
 
-  <section class="session" id="sesion-3">
-    <div class="wrap">
-      <div class="shead">
-        <div class="snum" aria-hidden="true">3</div>
-        <div>
-          <div class="sdate" data-date="2026-12-02">Sesión 3 · Miércoles 2 de diciembre</div>
-          <h2>La mesa y el programa</h2>
-          <p>Protección de datos al publicar, la mesa de mezclas Soundcraft EFX8, el montaje de un programa completo y su publicación.</p>
-        </div>
-      </div>
-      <div class="items">
-        <a class="item" href="presentaciones/proteger-su-voz.html" target="_blank" rel="noopener"><span class="kind">Presentación</span><h3>Proteger su voz</h3><p>Qué hacer antes de grabar y publicar las voces del alumnado.</p><span class="go">Ver la presentación →</span></a>
-        <a class="item" href="recursos/guia-proteccion-datos.pdf" target="_blank" rel="noopener"><span class="kind pdf">Guía PDF</span><h3>Guía de protección de datos</h3><p>El detalle paso a paso, con la lista de comprobación antes de publicar cada episodio.</p><span class="go">Abrir la guía →</span></a>
-        <a class="item" href="presentaciones/complementos-y-mesa.html" target="_blank" rel="noopener"><span class="kind">Presentación</span><h3>Complementos y mesa</h3><p>Las piezas del estudio, cómo se conectan y la mesa de mezclas, sin miedo.</p><span class="go">Ver la presentación →</span></a>
-      </div>
+  <section class="index wrap" id="sesiones">
+    <div class="section-head">
+      <div class="eyebrow">Material</div>
+      <h2>Sesión a sesión</h2>
     </div>
-  </section>
 
-  <section class="wrap" id="app">
-    <div class="app-band">
+    <article class="row" id="curso">
+      <div class="num" aria-hidden="true">00</div>
       <div>
-        <span class="rec"><i></i>Dale al rec</span>
-        <h2>Tu guion, en minutos.</h2>
-        <p>Plantillas de guion en español para el programa de radio de tu centro. Gratis, sin registro y sin inteligencia artificial.</p>
+        <div class="when">Para tener a mano en todas las sesiones</div>
+        <h3>El curso completo</h3>
+        <p>El hilo de las tres sesiones, con tutoriales de Audacity y Spreaker, programas de ejemplo y el taller práctico.</p>
       </div>
-      <div class="app-cta">
-        <a class="btn" href="https://acamand.github.io/dale-al-rec/" target="_blank" rel="noopener">Abrir Dale al Rec →</a>
+      <div class="list">
+        <a class="res" href="https://view.genially.com/6ae45332200818a35d8899e5" target="_blank" rel="noopener"><span><span class="k">Genially</span><span class="t">Todo el taller de un vistazo</span></span><span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <article class="row" id="sesion-1" data-date="2026-11-04">
+      <div class="num" aria-hidden="true">01</div>
+      <div>
+        <div class="when">Miércoles 4 de noviembre</div>
+        <h3>Por qué una radio escolar</h3>
+        <p>Para qué sirve una radio en el centro, qué necesitamos, cómo montar el estudio y cómo preparar el guion y la escaleta.</p>
+      </div>
+      <div class="list">
+        <a class="res" href="https://canva.link/s0hz33q68re3rqm" target="_blank" rel="noopener"><span><span class="k">Presentación · Canva</span><span class="t">¿Por qué una radio escolar?</span></span><span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <article class="row" id="sesion-2" data-date="2026-11-16">
+      <div class="num" aria-hidden="true">02</div>
+      <div>
+        <div class="when">Lunes 16 de noviembre</div>
+        <h3>La IA y Audacity</h3>
+        <p>Herramientas de inteligencia artificial para guiones, logos y sintonías, y primeros pasos para grabar y editar con Audacity.</p>
+      </div>
+      <div class="list">
+        <a class="res" href="https://canva.link/ujkw8eizps5xi4u" target="_blank" rel="noopener"><span><span class="k">Presentación · Canva</span><span class="t">IA vs. talento</span></span><span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <article class="row" id="sesion-3" data-date="2026-12-02">
+      <div class="num" aria-hidden="true">03</div>
+      <div>
+        <div class="when">Miércoles 2 de diciembre</div>
+        <h3>La mesa y el programa</h3>
+        <p>Protección de datos al publicar, la mesa de mezclas Soundcraft EFX8, el montaje de un programa completo y su publicación.</p>
+      </div>
+      <div class="list">
+        <a class="res" href="presentaciones/proteger-su-voz.html" target="_blank" rel="noopener"><span><span class="k">Presentación</span><span class="t">Proteger su voz</span></span><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="res" href="recursos/guia-proteccion-datos.pdf" target="_blank" rel="noopener"><span><span class="k">Guía · PDF</span><span class="t">Protección de datos, paso a paso</span></span><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="res" href="presentaciones/complementos-y-mesa.html" target="_blank" rel="noopener"><span><span class="k">Presentación</span><span class="t">Complementos y mesa de mezclas</span></span><span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  </section>
+
+  <section class="app" id="app">
+    <div class="wrap">
+      <div>
+        <span class="rec"><i class="dot"></i>Dale al rec</span>
+        <h2>Tu guion, en minutos.</h2>
+      </div>
+      <div>
+        <p>Plantillas de guion en español para el programa de radio de tu centro. Gratis, sin registro y sin inteligencia artificial.</p>
+        <a class="btn red" href="https://acamand.github.io/dale-al-rec/" target="_blank" rel="noopener">Abrir Dale al Rec →</a>
         <small>Funciona en el navegador del ordenador, la tableta o el móvil.</small>
       </div>
     </div>
@@ -239,22 +236,29 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
 <footer>
   <div class="wrap">
-    <span>Taller de Radio Escolar · CEP de Lora del Río · Actividad 274132GE009</span>
+    <span>Taller de Radio Escolar · CEP de Lora del Río</span>
     <a href="#inicio">Volver arriba ↑</a>
   </div>
 </footer>
 
 <script>
+// Barra superior opaca al bajar
+(function () {
+  var top = document.getElementById('top');
+  function onScroll() { top.classList.toggle('solid', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+})();
 // Marca la próxima sesión según la fecha de hoy
 (function () {
   var today = new Date(); today.setHours(0, 0, 0, 0);
-  var tiles = document.querySelectorAll('.tile[data-date]');
-  for (var i = 0; i < tiles.length; i++) {
-    var d = new Date(tiles[i].getAttribute('data-date') + 'T00:00:00');
+  var rows = document.querySelectorAll('.row[data-date]');
+  for (var i = 0; i < rows.length; i++) {
+    var d = new Date(rows[i].getAttribute('data-date') + 'T00:00:00');
     if (d >= today) {
-      tiles[i].classList.add('next');
-      var head = document.querySelector('.sdate[data-date="' + tiles[i].getAttribute('data-date') + '"]');
-      if (head) { var b = document.createElement('span'); b.className = 'badge'; b.textContent = d.getTime() === today.getTime() ? 'Hoy' : 'Próxima sesión'; head.appendChild(b); }
+      rows[i].querySelector('.num').classList.add('r');
+      var b = document.createElement('span'); b.className = 'badge';
+      b.textContent = d.getTime() === today.getTime() ? 'Hoy' : 'Próxima sesión';
+      rows[i].querySelector('.when').appendChild(b);
       break;
     }
   }
